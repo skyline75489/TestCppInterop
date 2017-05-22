@@ -1,0 +1,5 @@
+LIBRARY
+
+EXPORTS
+    ; Explicit exports can go here
+	PrintNumber2
