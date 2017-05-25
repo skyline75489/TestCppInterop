@@ -3,7 +3,6 @@
 namespace test
 {
     using System.Runtime.InteropServices;
-    using System.Threading;
 
     internal class Program
     {
