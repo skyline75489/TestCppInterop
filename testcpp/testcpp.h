@@ -22,10 +22,10 @@ public:
 };
 
 typedef void(*OnInternalSuccessDelegate)(Entry& a);
-typedef void(_stdcall *OnSuccessDelegate)(Entry& a, OnInternalSuccessDelegate func);
+typedef void(WINAPI *OnSuccessDelegate)(Entry& a, OnInternalSuccessDelegate func);
 
 // This is our implementation
-void _stdcall OnSuccess(Entry& a, OnInternalSuccessDelegate func)
+void WINAPI OnSuccess(Entry& a, OnInternalSuccessDelegate func)
 {
   func(a);
   printf("Finished\n");
@@ -43,7 +43,7 @@ public:
   OnSuccessDelegate on_success_delegate;
 };
 
-typedef void(_stdcall *ExecuteDelegate)(ExecutorCallbackImpl* callback, OnInternalSuccessDelegate internalSuccess);
+typedef void(WINAPI *ExecuteDelegate)(ExecutorCallbackImpl* callback, OnInternalSuccessDelegate internalSuccess);
 
 class Delegates
 {
@@ -74,7 +74,7 @@ void PrintNumber(int number)
   printf("%d\n", number);
 }
 
-void __stdcall PrintNumber2(int number)
+void WINAPI PrintNumber2(int number)
 {
   printf("%d\n", number);
 }
