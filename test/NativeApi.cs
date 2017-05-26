@@ -44,23 +44,25 @@
 
     public class NativeApi
     {
-        [DllImport(".\\testcpp.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "PrintNumber")]
+        private const string DllName = ".\\testcpp.dll";
+
+        [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "PrintNumber")]
         internal static extern void PrintNumber(int number);
 
-        [DllImport(".\\testcpp.dll")]
+        [DllImport(DllName)]
         internal static extern void PrintNumber2(int number);
 
-        [DllImport(".\\testcpp.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool PrintEntry(Entry entry);
 
-        [DllImport(".\\testcpp.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
         internal static extern void PrintEntry2(IntPtr entry);
 
-        [DllImport(".\\testcpp.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "Register")]
+        [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Register")]
         internal static extern void Register(Callbacks config);
 
-        [DllImport(".\\testcpp.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "Start")]
+        [DllImport(DllName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "Start")]
         internal static extern void Start();
     }
 
