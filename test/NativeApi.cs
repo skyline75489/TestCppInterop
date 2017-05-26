@@ -3,7 +3,7 @@
     using System;
     using System.Runtime.InteropServices;
 
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public class Entry
     {
         [MarshalAs(UnmanagedType.LPStr)]

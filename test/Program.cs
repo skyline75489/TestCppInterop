@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace test
+﻿namespace test
 {
+    using System;
     using System.Runtime.InteropServices;
 
     internal class Program
@@ -16,11 +15,7 @@ namespace test
         {
             NativeApi.PrintNumber(42);
             NativeApi.PrintNumber2(53);
-            var ret = NativeApi.PrintEntry(new Entry
-                                     {
-                                         name = "answer",
-                                         value = 111
-                                     });
+            var ret = NativeApi.PrintEntry(new Entry { name = "answer", value = 111 });
 
             Console.WriteLine(ret);
 
@@ -34,16 +29,11 @@ namespace test
 
             var impl = new CallBackImpl();
 
-            NativeApi.Register(new Callbacks
-            {
-                Executor = impl.Execute
-            });
+            NativeApi.Register(new Callbacks { Executor = impl.Execute });
 
-//            GC.Collect();
-//            GC.WaitForPendingFinalizers();
-
+            // GC.Collect();
+            // GC.WaitForPendingFinalizers();
             NativeApi.Start();
-
         }
     }
 }
